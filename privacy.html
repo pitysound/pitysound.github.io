@@ -3,67 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Política de Privacidad - techonotech</title>
+    <title>Política de Privacidad | techonotech</title>
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #1d1d1f;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f5f5f7;
-        }
-        .container {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-        h1 { color: #1d1d1f; border-bottom: 2px solid #0071e3; padding-bottom: 10px; }
-        h2 { color: #0071e3; margin-top: 25px; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f9f9f9; }
+        .container { background-color: #ffffff; padding: 30px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        h1 { color: #111; border-bottom: 2px solid #FF6D00; padding-bottom: 10px; }
+        h2 { color: #FF6D00; margin-top: 25px; }
         ul { padding-left: 20px; }
         li { margin-bottom: 8px; }
-        .date { color: #86868b; font-size: 0.9em; margin-bottom: 20px; }
-        code { background: #e8e8ed; padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+        a { color: #FF6D00; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .footer { margin-top: 30px; font-size: 0.9em; color: #777; border-top: 1px solid #eee; padding-top: 15px; }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Política de Privacidad - techonotech</h1>
-        <p class="date">Última actualización: 2 de septiembre de 2026</p>
+        <p><strong>Última actualización:</strong> 2026</p>
 
-        <p>La presente Política de Privacidad establece los términos en que <strong>techonotech</strong> usa y protege la información proporcionada por los usuarios de nuestras aplicaciones móviles.</p>
+        <p>Esta Política de Privacidad describe cómo se recopila, utiliza y protege la información en las aplicaciones móviles desarrolladas por <strong>techonotech</strong>.</p>
 
-        <h2>1. Identificación y Aplicaciones Cubiertas</h2>
-        <p><strong>Correo de contacto:</strong> techonotechpodcast@gmail.com</p>
-        <p>Esta política de privacidad aplica a las siguientes aplicaciones desarrolladas por techonotech:</p>
+        <h2>1. Aplicaciones Cubiertas por esta Política</h2>
         <ul>
             <li><strong>Resonix: Speaker Cleaner</strong> (Android / iOS)</li>
             <li><strong>Volume Booster X Pro Equalizer</strong></li>
             <li><strong>RADIONYX - RADIO FM EQUALIZER</strong></li>
             <li><strong>Polygraph AI: Lie Analysis</strong> (iOS)</li>
+            <li><strong>Pitch Flow: Vocal Tuner</strong> (Android / iOS)</li>
         </ul>
 
-        <h2>2. Permisos de Audio y Micrófono (Uso en Tiempo Real)</h2>
-        <p>Para la aplicación <strong>Resonix: Speaker Cleaner</strong> y <strong>Polygraph AI</strong>, se solicita acceso al micrófono del dispositivo (permiso <code>android.permission.RECORD_AUDIO</code> / <code>NSMicrophoneUsageDescription</code>) bajo las siguientes garantías estrictas:</p>
+        <h2>2. Uso del Micrófono y Permisos de Audio (Procesamiento en Tiempo Real)</h2>
+        <p>Las aplicaciones <strong>Pitch Flow: Vocal Tuner</strong>, <strong>Resonix: Speaker Cleaner</strong> y <strong>Polygraph AI</strong> requieren el permiso de micrófono (<code>RECORD_AUDIO</code> en Android / <code>NSMicrophoneUsageDescription</code> en iOS) para su funcionamiento exclusivo en tiempo real:</p>
         <ul>
-            <li><strong>Propósito Exclusivo en Resonix:</strong> El micrófono se utiliza únicamente durante la prueba de salud acústica de 3 segundos para medir en tiempo real el volumen (dBFS) y la respuesta de frecuencia mediante la Transformada Rápida de Fourier (FFT).</li>
-            <li><strong>Procesamiento 100% Local:</strong> Todo el procesamiento del espectro de audio se realiza exclusivamente en la memoria RAM del teléfono del usuario.</li>
-            <li><strong>Cero Grabación y Cero Almacenamiento:</strong> <strong>No se graba, no se guarda ningún archivo de audio en el dispositivo ni se transmite ningún dato sonoro a servidores externos o terceros.</strong></li>
+            <li><strong>Pitch Flow: Vocal Tuner:</strong> Utiliza la captura de micrófono exclusivamente para la detección local de la frecuencia fundamental (Hz), afinación y dibujado de partituras en tiempo real. Todo el análisis DSP se procesa íntegramente en la memoria RAM del dispositivo.</li>
+            <li><strong>Resonix: Speaker Cleaner:</strong> Utiliza el micrófono únicamente durante la prueba acústica de 3 segundos para medir la respuesta de volumen e intensidad mediante FFT.</li>
+            <li><strong>Garantía de Privacidad 100% Local:</strong> Ningún audio capturado se transmite, envía ni almacena en servidores externos o de terceros. Todo el procesamiento de audio es 100% Offline y privado.</li>
+            <li><strong>Archivos de Grabación Locales (Pitch Flow):</strong> Las grabaciones guardadas por el usuario (archivos WAV, AAC o MIDI) se almacenan de forma local en la memoria privada de la aplicación dentro de su propio dispositivo. El usuario mantiene el control total para reproducir, compartir o eliminar físicamente estos archivos en cualquier momento.</li>
         </ul>
 
         <h2>3. Publicidad y Servicios de Terceros (Google AdMob)</h2>
-        <p>Nuestras aplicaciones utilizan el SDK de publicidad <strong>Google AdMob</strong> para mostrar anuncios no intrusivos:</p>
-        <ul>
-            <li>Google AdMob puede recopilar identificadores de dispositivo anónimos (como el ID de publicidad de Google en Android o IDFA en iOS) para la entrega de anuncios y analíticas de impresiones de acuerdo con las <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Políticas de Privacidad de Google</a>.</li>
-        </ul>
+        <p>Nuestras aplicaciones utilizan el servicio de publicidad <strong>Google AdMob</strong> de Google LLC para mostrar anuncios no invasivos. Google AdMob puede recopilar y utilizar identificadores anónimos del dispositivo (como el ID de publicidad de Google o IDFA en iOS) para la entrega y personalización de anuncios de acuerdo con su propia política de privacidad.</p>
+        <p>Para más información, consulte la <a href="https://policies.google.com/technologies/ads" target="_blank">Política de Privacidad y Términos de Anuncios de Google</a>.</p>
 
-        <h2>4. Seguridad y Retención de Datos</h2>
-        <p>Al no recopilar, almacenar ni transmitir datos personales o archivos de audio de los usuarios, no existe riesgo de filtración de información personal. Mantenemos un compromiso firme con la privacidad y la seguridad técnica según los estándares de la industria.</p>
+        <h2>4. Plataforma de Consentimiento UMP (RGPD / Unión Europea)</h2>
+        <p>Para usuarios en la Unión Europea y el Reino Unido, nuestras aplicaciones integran la plataforma de consentimiento <strong>Google User Messaging Platform (UMP)</strong> para permitirle aceptar, rechazar o gestionar libremente sus preferencias de privacidad publicitaria en cumplimiento del RGPD.</p>
 
         <h2>5. Contacto</h2>
-        <p>Para cualquier duda, aclaración o consulta sobre esta política de privacidad, puedes contactarnos a través del correo electrónico: <strong>techonotechpodcast@gmail.com</strong>.</p>
+        <p>Si tiene alguna pregunta o sugerencia sobre esta Política de Privacidad, puede ponerse en contacto con nosotros en:</p>
+        <p>📧 Correo electrónico: <a href="mailto:techonotechpodcast@gmail.com">techonotechpodcast@gmail.com</a></p>
+
+        <div class="footer">
+            <p>&copy; 2026 techonotech. Todos los derechos reservados.</p>
+        </div>
     </div>
 </body>
 </html>
