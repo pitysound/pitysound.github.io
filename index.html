@@ -3,70 +3,293 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Soporte y Privacidad - techonotech</title>
+    <title>techonotech - Centro de Soporte, Privacidad y Términos Legales</title>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; background-color: #f0f2f5; }
-        .main-card { background: white; padding: 40px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .header { text-align: center; border-bottom: 2px solid #00F5A0; margin-bottom: 30px; padding-bottom: 20px; }
-        h1 { color: #121214; margin: 0; }
-        h2 { color: #00F5A0; margin-top: 30px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
-        h3 { color: #444; margin-top: 20px; }
-        .btn-support { display: inline-block; background-color: #00F5A0; color: #121214; padding: 15px 30px; border-radius: 30px; text-decoration: none; font-weight: bold; margin: 20px 0; transition: transform 0.2s; }
-        .btn-support:hover { transform: scale(1.05); }
-        .app-list { background: #f9f9f9; padding: 15px; border-radius: 8px; border-left: 4px solid #00F5A0; }
-        .footer { text-align: center; margin-top: 40px; font-size: 0.8em; color: #888; }
+        :root {
+            --primary: #0071e3;
+            --primary-hover: #0077ed;
+            --accent: #00f5a0;
+            --brand-orange: #ff6d00;
+            --text-main: #1d1d1f;
+            --text-muted: #6e6e73;
+            --bg-page: #f5f5f7;
+            --bg-card: #ffffff;
+            --border-color: #e5e5ea;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.65;
+            color: var(--text-main);
+            background-color: var(--bg-page);
+            padding: 20px;
+        }
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .brand {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--text-main);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+        .brand span { color: var(--primary); }
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            margin-left: 18px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary);
+        }
+        .hero {
+            text-align: center;
+            padding: 20px 0 35px 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 35px;
+        }
+        h1 {
+            font-size: 2.3rem;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 620px;
+            margin: 0 auto 24px auto;
+        }
+        .btn-support {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 13px 28px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0, 113, 227, 0.25);
+        }
+        .btn-support:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 113, 227, 0.35);
+        }
+        h2 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-top: 35px;
+            margin-bottom: 18px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+            margin-bottom: 30px;
+        }
+        .app-card {
+            background: #fafafc;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 18px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .app-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+        }
+        .app-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 6px;
+        }
+        .app-platform {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            background: #e8e8ed;
+            color: #444;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-bottom: 8px;
+        }
+        .app-card p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.45;
+        }
+        .legal-summary {
+            background: #f9fbfd;
+            border: 1px solid #d4e3f5;
+            border-left: 4px solid var(--primary);
+            border-radius: 10px;
+            padding: 22px;
+            margin: 25px 0;
+        }
+        .legal-summary h3 {
+            color: var(--primary);
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+        }
+        .legal-summary p {
+            font-size: 0.95rem;
+            color: #333336;
+            margin-bottom: 12px;
+        }
+        .legal-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        .btn-outline {
+            display: inline-block;
+            border: 1.5px solid var(--primary);
+            color: var(--primary);
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        .footer {
+            margin-top: 50px;
+            padding-top: 25px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        .footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 22px; }
+            h1 { font-size: 1.8rem; }
+            .nav-bar { flex-direction: column; align-items: flex-start; }
+            .nav-links a { margin-left: 0; margin-right: 15px; }
+            .legal-buttons { flex-direction: column; }
+        }
     </style>
 </head>
 <body>
 
-<div class="main-card">
-    <div class="header">
-        <h1>techonotech</h1>
-        <p>Centro de Soporte y Privacidad para Aplicaciones Móviles</p>
-    </div>
+<div class="container">
+    <nav class="nav-bar">
+        <a href="index.html" class="brand">techono<span>tech</span></a>
+        <div class="nav-links">
+            <a href="index.html" class="active">Inicio</a>
+            <a href="privacy.html">Privacidad</a>
+            <a href="terms.html">Términos Legales</a>
+            <a href="mailto:techonotechpodcast@gmail.com">Soporte</a>
+        </div>
+    </nav>
 
-    <section style="text-align: center;">
-        <h2>¿Necesitas Ayuda?</h2>
-        <p>Si tienes alguna duda, problema técnico o sugerencia sobre nuestras apps, estamos a tu disposición.</p>
-        <a href="mailto:techonotechpodcast@gmail.com" class="btn-support">Contactar con Soporte</a>
-    </section>
+    <div class="hero">
+        <h1>techonotech</h1>
+        <p class="subtitle">Centro Oficial de Soporte, Transparencia de Datos y Términos Legales para nuestras aplicaciones móviles y videojuegos en Android e iOS.</p>
+        <a href="mailto:techonotechpodcast@gmail.com" class="btn-support">✉️ Contactar con Soporte Técnico</a>
+    </div>
 
     <section>
-        <h2>POLÍTICA DE PRIVACIDAD</h2>
-        <p><strong>Última actualización:</strong> 2 de agosto de 2026</p>
-        <p>En <strong>techonotech</strong> nos tomamos muy en serio la seguridad y la protección de los datos de nuestros usuarios. Esta política describe cómo manejamos la información en todas nuestras aplicaciones.</p>
-
-        <h3>1. Aplicaciones Cubiertas</h3>
-        <div class="app-list">
-            <ul>
-                <li><strong>Polygraph AI: Lie Analysis (iOS)</strong></li>
-                <li>Poligrafo con IA: Estrés vocal (Android)</li>
-                <li>Volume Booster X Pro Equalizer</li>
-                <li>RADIONYX - RADIO FM EQUALIZER</li>
-            </ul>
+        <h2>🎮 Videojuegos y Aplicaciones Publicadas</h2>
+        <div class="app-grid">
+            <div class="app-card" style="border-top: 3px solid var(--brand-orange);">
+                <span class="app-platform">Android / iOS</span>
+                <div class="app-title">⚡ VampTech: Silicon Survivor</div>
+                <p>Juego de acción roguelite 3D con combates isométricos a 60 FPS, 5 operadores desbloqueables, sistema de mejoras tácticas y ranking mundial global en Cloud Firestore.</p>
+            </div>
+            <div class="app-card" style="border-top: 3px solid var(--primary);">
+                <span class="app-platform">Android / iOS</span>
+                <div class="app-title">🔊 Resonix: Speaker Cleaner</div>
+                <p>Herramienta acústica de expulsión de agua y limpieza de altavoces mediante ondas sonoras subsónicas y prueba espectral de volumen en tiempo real.</p>
+            </div>
+            <div class="app-card" style="border-top: 3px solid #b388ff;">
+                <span class="app-platform">iOS</span>
+                <div class="app-title">🎙️ Polygraph AI: Lie Analysis</div>
+                <p>Aplicación de entretenimiento con análisis vocal en tiempo real procesado de forma estrictamente local en el procesador del dispositivo.</p>
+            </div>
+            <div class="app-card" style="border-top: 3px solid var(--accent);">
+                <span class="app-platform">Android</span>
+                <div class="app-title">🧠 Polígrafo con IA: Estrés vocal</div>
+                <p>Detector de estrés vocal en tiempo real. Análisis acústico 100% en memoria volátil sin grabación de audio ni almacenamiento externo.</p>
+            </div>
+            <div class="app-card" style="border-top: 3px solid #ffab40;">
+                <span class="app-platform">Android</span>
+                <div class="app-title">🎚️ Volume Booster X Pro Equalizer</div>
+                <p>Potenciador de sonido y ecualizador multibanda con control preciso de frecuencias, virtualizador estéreo y presets de graves.</p>
+            </div>
+            <div class="app-card" style="border-top: 3px solid #ff1744;">
+                <span class="app-platform">Android</span>
+                <div class="app-title">📻 RADIONYX - RADIO FM EQUALIZER</div>
+                <p>Reproductor y sintonizador de streaming y radio de alta fidelidad con motor de ecualización en tiempo real y audio HD.</p>
+            </div>
         </div>
-
-        <h3>2. Recopilación de Información y Permisos</h3>
-        <p>Nuestras aplicaciones están diseñadas para funcionar de manera segura y privada:</p>
-        <ul>
-            <li><strong>Análisis de Voz (Polygraph AI):</strong> Accedemos al micrófono únicamente para analizar el estrés vocal en tiempo real. <strong>Todo el procesamiento se realiza localmente en el dispositivo.</strong> No grabamos, almacenamos ni enviamos su audio a servidores externos.</li>
-            <li><strong>Configuración de Audio (Volume Booster):</strong> Se requiere acceso local para aplicar efectos de ecualización. No se recopilan datos personales de este proceso.</li>
-            <li><strong>Información Técnica:</strong> Recopilamos datos anónimos de diagnóstico (modelos de dispositivo, versiones de sistema) para mejorar la estabilidad.</li>
-        </ul>
-
-        <h3>3. Publicidad (Google AdMob)</h3>
-        <p>Utilizamos Google AdMob para financiar nuestras aplicaciones gratuitas. El SDK de AdMob puede recopilar identificadores únicos (IDFA en iOS y Advertising ID en Android) para mostrar anuncios relevantes y medir su rendimiento. Usted puede restablecer estos IDs en los ajustes de privacidad de su dispositivo.</p>
-
-        <h3>4. Seguridad y Terceros</h3>
-        <p>Empleamos estándares de la industria para proteger su información. Nuestras apps pueden contener enlaces a servicios de terceros (como el navegador al pulsar un anuncio); no somos responsables de las políticas de privacidad de esos sitios externos.</p>
-
-        <h3>5. Contacto</h3>
-        <p>Para cualquier consulta legal o técnica: <strong>techonotechpodcast@gmail.com</strong></p>
     </section>
 
-    <div class="footer">
-        &copy; 2026 techonotech. Todos los derechos reservados.
+    <div class="legal-summary">
+        <h3>🛡️ Compromiso de Privacidad y Términos Legales</h3>
+        <p>En <strong>techonotech</strong> cumplimos rigurosamente las políticas de desarrollo de Google Play Console y Apple App Store:</p>
+        <ul style="padding-left: 20px; margin-bottom: 12px; font-size: 0.92rem; color: #444;">
+            <li><strong>Privacidad de VampTech:</strong> Guardado de partidas 100% local en tu dispositivo. El Ranking Mundial no almacena datos personales ni cuentas; solo el apodo y la puntuación voluntariamente transmitida.</li>
+            <li><strong>Cero Grabación de Voz:</strong> Nuestras utilidades de audio procesan las frecuencias en la memoria RAM del teléfono sin grabar ni enviar sonido a ningún servidor.</li>
+            <li><strong>Pagos y Suscripciones Seguras:</strong> Todas las transacciones se realizan mediante Google Play Billing y Apple In-App Purchase. No tenemos acceso a tus datos bancarios ni tarjetas.</li>
+            <li><strong>Publicidad Transparente:</strong> Anuncios no invasivos suministrados por Google AdMob respetando tus preferencias de privacidad.</li>
+        </ul>
+        <div class="legal-buttons">
+            <a href="privacy.html" class="btn-outline">📄 Leer Política de Privacidad Completa</a>
+            <a href="terms.html" class="btn-outline">📜 Ver Términos y Condiciones de Uso</a>
+        </div>
     </div>
+
+    <section>
+        <h2>📬 Contacto y Soporte</h2>
+        <p>Si tienes alguna consulta técnica, deseas solicitar la eliminación de un alias en el ranking de VampTech o necesitas asistencia con alguna compra:</p>
+        <p><strong>Correo electrónico oficial:</strong> <a href="mailto:techonotechpodcast@gmail.com" style="color: var(--primary); font-weight: 600;">techonotechpodcast@gmail.com</a></p>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2026 techonotech. Todos los derechos reservados.</p>
+        <p style="margin-top: 8px;">
+            <a href="index.html">Inicio</a> &bull;
+            <a href="privacy.html">Política de Privacidad</a> &bull;
+            <a href="terms.html">Términos de Servicio</a> &bull;
+            <a href="app-ads.txt">app-ads.txt</a>
+        </p>
+    </footer>
 </div>
 
 </body>
